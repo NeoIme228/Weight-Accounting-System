@@ -3,3 +3,5 @@ PyQt5-Qt5==5.15.17
 PyQt5_sip==12.17.0
 segno==1.6.6
 socket
+xlsxwriter==3.2.9
+matplotlib==3.10.7

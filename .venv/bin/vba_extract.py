@@ -1,4 +1,4 @@
-#!/home/andrew/Main/Code/Python/Progects/Weight Accounting System/.venv/bin/python3
+#!/home/andrew/Main/Code/Python/Progects/Weight Accounting System/.venv/bin/python
 
 ##############################################################################
 #
