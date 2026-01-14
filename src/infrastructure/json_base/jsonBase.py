@@ -27,6 +27,7 @@ class JsonBase:
             raise JsonFormatError("Невалидный формат json")
         
         except FileNotFoundError:
+            os.makedirs("data", exist_ok=True)
             with open(self.path, "w") as jfile:
                 json.dump(self.base, 
                       jfile,
