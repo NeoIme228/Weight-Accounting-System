@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from exceptions.missingDatesError import MissingDatesError
 
@@ -115,7 +116,9 @@ class JsonTools():
     def get_dates_account_id(self, account_id: str) -> list:
         """Возвращает все даты текущей учётки"""
         try:
-            return list(self.jbase.base["accounts"][account_id]["dates"].keys())[::-1]
+            return list(
+                sorted(self.jbase.base["accounts"][account_id]["dates"].keys(),
+                       key=lambda x: datetime.strptime(x, '%Y-%m-%d')))
         except KeyError:
             raise MissingDatesError("Отсутствуют даты")
     

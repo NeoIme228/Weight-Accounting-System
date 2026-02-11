@@ -4,7 +4,7 @@ from PyQt5.QtCore import Qt
 
 from tools.makeGraph import make_graph
 
-# Чтобы бы подходящий для графика размер
+# Чтобы был подходящий для графика размер
 MAX_WIDTH = 0
 MAX_HEIGHT = 0
 
