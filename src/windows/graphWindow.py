@@ -1,49 +1,36 @@
-from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtCore import Qt 
+from pyqtgraph import PlotWidget
+import pyqtgraph as pg 
 
-from tools.makeGraph import make_graph
-
-# Чтобы был подходящий для графика размер
-MAX_WIDTH = 0
-MAX_HEIGHT = 0
-
-class GraphWindow(QWidget):
+class GraphWindow(PlotWidget):
     """Класс окна с графиком статистики"""
 
     def __init__(self, name_account: str, listDates: list, listWeight: list):
         super().__init__()
-
+        
         self.name_account = name_account
         self.listDates = listDates
         self.listWeight = listWeight
-
-        self.initUI()
-
-    def initUI(self):
-        """Инициализация UI"""
-
-        self.setWindowTitle(" ")
-        self.setMaximumSize(MAX_WIDTH, MAX_HEIGHT)
-
-        self.move(100, 100)
         
-        graphPixmap = QPixmap.fromImage(make_graph(self.name_account, self.listDates, self.listWeight))
+        self.initGraph()
 
-        graph = QLabel()
-        graph.setScaledContents(True)
-        graph.setPixmap(graphPixmap)
+    def initGraph(self):
+        """Инициализация графика"""
+        
+        self.setWindowTitle(f"График: {self.name_account}")
+        self.setBackground("white")
+        
+        # Необходимо для подстановки дат в абсциссу
+        dates_indexes = list(range(len(self.listDates)))  
 
-        self.setupLayout([graph,])
-
+        self.plot(dates_indexes, 
+                  self.listWeight, 
+                  symbol='o',
+                  pen=pg.mkPen('b', width=2), 
+                  antialias=True
+            )
+        
+        x_axis = self.getAxis('bottom')
+        x_axis.setTicks([list(zip(dates_indexes, self.listDates))])
+        
         self.show()
 
-    def setupLayout(self, widgets: list):
-        """Устанавливает все нужные элементы в Layout"""
-
-        layout = QVBoxLayout()
-        
-        for widget in widgets:
-            layout.addWidget(widget, stretch=1)
-
-        self.setLayout(layout)

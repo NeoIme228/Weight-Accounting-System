@@ -118,7 +118,9 @@ class JsonTools():
         try:
             return list(
                 sorted(self.jbase.base["accounts"][account_id]["dates"].keys(),
-                       key=lambda x: datetime.strptime(x, '%Y-%m-%d')))
+                       key=lambda x: datetime.strptime(x, '%Y-%m-%d')
+                       )
+                )
         except KeyError:
             raise MissingDatesError("Отсутствуют даты")
     

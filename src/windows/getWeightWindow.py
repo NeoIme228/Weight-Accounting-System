@@ -32,10 +32,10 @@ class GetWeightWindow(QDialog, Ui_GetWeightWindow):
         if float(self.editWeight.value()) and self.getDate.date():
             self.accept()
 
-    def get_weight(self) -> str:
+    def get_weight(self) -> float:
         """Возвращает вес"""
 
-        return str(self.editWeight.value())
+        return self.editWeight.value()
         
     def get_date(self) -> str:
         """Возвращает дату"""

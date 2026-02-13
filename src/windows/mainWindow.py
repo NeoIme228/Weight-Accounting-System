@@ -108,7 +108,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
             if self.jtools.set_info_date(self.jtools.get_current_account_id(), date, new_weight):
                     if date == str(datetime.now().date()):
-                        self.weight.setText(new_weight)
+                        self.weight.setText(str(new_weight))
                     self.jtools.jbase._save()
             else:
                 QMessageBox.warning(self, " ", "У вас нету учётов.\nСоздайте с помощью '+'")
