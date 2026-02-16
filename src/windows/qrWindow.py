@@ -2,8 +2,8 @@ from PyQt5.QtWidgets import QWidget, QLabel
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt 
 
-from tools.getLocalIp import get_local_ip
-from tools.makeQR import make_QR
+from infrastructure.getLocalIp import get_local_ip
+from infrastructure.makeQR import make_QR
 
 WIDTH_QR = HEIGHT_QR = 400
 

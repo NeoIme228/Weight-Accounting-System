@@ -12,7 +12,7 @@ from exceptions.netConnectError import NetConnectError
 from infrastructure.json_base.jsonTools import JsonTools
 from infrastructure.server import Server
 
-from tools.exportToExcel import export_to_excel
+from infrastructure.exportToExcel import export_to_excel
 
 from generated.mainWindow import Ui_MainWindow
 
