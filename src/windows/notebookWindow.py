@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QWidget, QTableWidgetItem, QHeaderView
 
 from generated.notebookWindow import Ui_NotebookWindow
 
@@ -11,10 +11,18 @@ class NotebookWindow(QWidget, Ui_NotebookWindow):
         self.account = account
 
         self.setupUi(self)
+        self.initUI()
         self.initElements()
 
         self.show()
+        
+    def initUI(self):
+        """Инициализация UI"""
+        
+        header = self.tableNotebook.horizontalHeader()
+        header.setSectionResizeMode(QHeaderView.Stretch)
 
+        
     def initElements(self):
         """Инициализация элементов журнала"""
 
