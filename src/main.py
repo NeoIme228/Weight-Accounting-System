@@ -1,4 +1,4 @@
-# Импрот основных модулей
+# Импорот основных модулей
 import sys
 
 from PyQt5.QtWidgets import QApplication
@@ -9,5 +9,5 @@ from windows.mainWindow import MainWindow
 if __name__ == "__main__":
     
     app = QApplication(sys.argv) # Экземпляр приложения
-    window = MainWindow() # Экземпляр гланого окна
+    window = MainWindow() # Экземпляр главного окна
     sys.exit(app.exec_()) # Запуск приложения
