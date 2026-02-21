@@ -67,13 +67,12 @@ class JsonTools():
             self.jbase.base["current_account_id"] = ""
             return False
 
-    def set_info_date(self, account_id: str, date: str, weight: str, weather: str = "") -> bool:
+    def set_info_date(self, account_id: str, date: str, weight: str) -> bool:
         """Устанавливает вес даты в учётку"""
         
         if account_id in self.jbase.base["accounts"]:
             self.jbase.base["accounts"][account_id]["dates"][date] = {
                 "weight": weight,
-                "weather": weather
             }
             return True
         return False
@@ -93,7 +92,7 @@ class JsonTools():
                 return self.jbase.base["accounts"][account_id]["name"]
         return "Создайте новый учёт с помощью '+'!"
     
-    def get_account(self, account_id: str) -> dict["name": str, "weight": int, "weather": str]:
+    def get_account(self, account_id: str) -> dict["name": str, "weight": int]:
         """Возвращает данные аккаунта по id"""
 
         if account_id in self.jbase.base["accounts"]:

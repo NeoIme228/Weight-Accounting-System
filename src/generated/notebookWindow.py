@@ -14,21 +14,71 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_NotebookWindow(object):
     def setupUi(self, NotebookWindow):
         NotebookWindow.setObjectName("NotebookWindow")
-        NotebookWindow.resize(434, 472)
+        NotebookWindow.resize(450, 450)
+        NotebookWindow.setMinimumSize(QtCore.QSize(450, 450))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        NotebookWindow.setFont(font)
+        NotebookWindow.setStyleSheet("QTableWidget {\n"
+"    font-size: 140px;\n"
+"    background-color: #ffffff;\n"
+"    color: #333333;\n"
+"    border: 1px solid #dddddd;\n"
+"    gridline-color: #eeeeee;\n"
+"    selection-background-color: #e3f2fd;\n"
+"    selection-color: #1976d2;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"\n"
+"    border-bottom: 1px solid #f0f0f0;\n"
+"}\n"
+"\n"
+"QTableView::item:selected {\n"
+"    background-color:  rgb(255, 255, 127);\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #f5f5f5;\n"
+"    color: #555555;\n"
+"    font-weight: bold;\n"
+"    padding: 10px;\n"
+"    border: none;\n"
+"    border-bottom: 2px solid #dddddd;\n"
+"    text-align: left; \n"
+"}")
         self.horizontalLayout = QtWidgets.QHBoxLayout(NotebookWindow)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.tableNotebook = QtWidgets.QTableWidget(NotebookWindow)
         self.tableNotebook.setEnabled(True)
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setUnderline(False)
+        font.setWeight(50)
+        font.setStrikeOut(False)
+        self.tableNotebook.setFont(font)
+        self.tableNotebook.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.tableNotebook.setStyleSheet("QTableWidget { font-size: 16pt; }\n"
+"QTableWidget::item { font-size: 16pt; }\n"
+"QHeaderView::section { font-size: 16pt; }")
         self.tableNotebook.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableNotebook.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
         self.tableNotebook.setObjectName("tableNotebook")
-        self.tableNotebook.setColumnCount(3)
+        self.tableNotebook.setColumnCount(2)
         self.tableNotebook.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        item.setFont(font)
         self.tableNotebook.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        item.setFont(font)
         self.tableNotebook.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableNotebook.setHorizontalHeaderItem(2, item)
         self.tableNotebook.verticalHeader().setVisible(False)
         self.horizontalLayout.addWidget(self.tableNotebook)
 
@@ -42,5 +92,3 @@ class Ui_NotebookWindow(object):
         item.setText(_translate("NotebookWindow", "Дата"))
         item = self.tableNotebook.horizontalHeaderItem(1)
         item.setText(_translate("NotebookWindow", "Вес"))
-        item = self.tableNotebook.horizontalHeaderItem(2)
-        item.setText(_translate("NotebookWindow", "Погода"))
