@@ -47,5 +47,5 @@ def main(filenames: list[str]=[]):
         compile_ui_to_py(os.listdir(UI_SOURCE_DIR))
         
 if __name__ == "__main__":
-    main(['notebookWindow.ui'])
+    main(['mainWindow.ui'])
     logging.info("Компиляция завершена")

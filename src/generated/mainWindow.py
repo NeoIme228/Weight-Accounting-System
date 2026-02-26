@@ -20,7 +20,12 @@ class Ui_MainWindow(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icons/icons/honeycomb.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
-        MainWindow.setStyleSheet("QPushButton{\n"
+        MainWindow.setStyleSheet("QMainWindow{\n"
+"    \n"
+"    background-color:  rgb(254, 254, 230);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
 "    background-color: rgb(255, 255, 127);\n"
 "    border: 1px solid rgb(0, 0, 0);\n"
 "    border-radius:20px;\n"

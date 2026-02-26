@@ -61,10 +61,10 @@ class NotebookWindow(QWidget, Ui_NotebookWindow):
         """Инициализация элементов журнала"""
 
         self.setWindowTitle(f"Статистика: {self.account['name']}")
-        self.tableNotebook.setRowCount(len(self.account) + 1)
+        self.tableNotebook.setRowCount(len(self.account['dates']) + 1)
 
         for index_date, data in enumerate(self.account["dates"].items()):
-            for index_item, element in enumerate([data[0], data[1]["weight"], data[1]["weather"]]):
+            for index_item, element in enumerate([data[0], data[1]["weight"]]):
                 
                 item = QTableWidgetItem(str(element))
                 self.tableNotebook.setItem(index_date, index_item, item)

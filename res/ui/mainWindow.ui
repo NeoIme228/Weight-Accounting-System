@@ -30,7 +30,12 @@
     <normaloff>:/icons/icons/honeycomb.svg</normaloff>:/icons/icons/honeycomb.svg</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton{
+   <string notr="true">QMainWindow{
+    
+	background-color:  rgb(254, 254, 230);
+}
+
+QPushButton{
 	background-color: rgb(255, 255, 127);
     border: 1px solid rgb(0, 0, 0);
 	border-radius:20px;
