@@ -146,9 +146,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """Окно с графиком по дням"""
 
         try:
-            self.graphWindow = GraphWindow(self.jtools.get_account_name(self.jtools.get_current_account_id()),
-                                  self.jtools.get_dates_account_id(self.jtools.get_current_account_id()),
-                                  self.jtools.get_weight_account_id(self.jtools.get_current_account_id()))
+            self.graphWindow = GraphWindow(self, 
+                self.jtools.get_account_name(self.jtools.get_current_account_id()),
+                self.jtools.get_dates_account_id(self.jtools.get_current_account_id()),
+                self.jtools.get_weight_account_id(self.jtools.get_current_account_id())
+            )
         except MissingDatesError:
             QMessageBox.warning(self, " ", "У вас нету данных!")
         
