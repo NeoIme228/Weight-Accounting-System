@@ -173,7 +173,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         try:
             self.notebookWindow = NotebookWindow(self.jtools.get_account(self.jtools.get_current_account_id()))
-        except TypeError:
+        except TypeError as e:
             QMessageBox.warning(self, " ", "У вас нету данных!")
 
     def sync_process(self):

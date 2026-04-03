@@ -116,10 +116,8 @@ class JsonTools():
         """Возвращает все даты текущей учётки"""
         try:
             return list(
-                sorted(self.jbase.base["accounts"][account_id]["dates"].keys(),
-                       key=lambda x: datetime.strptime(x, '%Y-%m-%d')
-                       )
-                )
+                self.jbase.base["accounts"][account_id]["dates"].keys()
+            )
         except KeyError:
             raise MissingDatesError("Отсутствуют даты")
     
@@ -131,7 +129,7 @@ class JsonTools():
         for info_date in self.jbase.base["accounts"][account_id]["dates"].values():
             weight_account_id.append(info_date["weight"])
 
-        return weight_account_id[::-1]
+        return weight_account_id
 
     def sort_date_base(self):
         """Сортирует все даты базы данных"""
@@ -156,7 +154,7 @@ class JsonTools():
         self.sort_date_base()
 
         self.jbase._save()  
-
+    
 
 # js = JsonTools()
 

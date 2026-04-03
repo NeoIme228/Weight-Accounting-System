@@ -13,12 +13,24 @@ class NotebookWindow(QWidget, Ui_NotebookWindow):
 
         self.account = account
 
+        self.date_weight = self.formatDateWeightDict()
+        
         self.setupUi(self)
         self.initUI()
         self.initElements()
 
         self.show()
         
+    def formatDateWeightDict(self) -> dict:
+        """Формирование сортированого словаря с датами и весами"""
+        
+        date_weight = dict()
+        
+        for data in self.account["dates"].items():
+            date_weight[data[0]] = data[1]["weight"]
+            
+        return dict(sorted(date_weight.items()))
+    
     def initUI(self):
         """Инициализация UI"""
         
@@ -61,11 +73,12 @@ class NotebookWindow(QWidget, Ui_NotebookWindow):
         """Инициализация элементов журнала"""
 
         self.setWindowTitle(f"Статистика: {self.account['name']}")
-        self.tableNotebook.setRowCount(len(self.account['dates']) + 1)
+        self.tableNotebook.setRowCount(len(self.account['dates']))
 
-        for index_date, data in enumerate(self.account["dates"].items()):
-            for index_item, element in enumerate([data[0], data[1]["weight"]]):
-                
-                item = QTableWidgetItem(str(element))
-                self.tableNotebook.setItem(index_date, index_item, item)
+        for index, element in enumerate(self.date_weight.items()):
+            
+            item_data = QTableWidgetItem(str(element[0]))
+            item_weight = QTableWidgetItem(str(element[1]))
+            self.tableNotebook.setItem(index, 0, item_data)
+            self.tableNotebook.setItem(index, 1, item_weight)
             

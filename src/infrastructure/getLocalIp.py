@@ -11,6 +11,7 @@ def get_local_ip() -> str:
         server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         server.connect(("8.8.8.8", 80))
         local_ip = server.getsockname()[0]
+        print(local_ip)
 
     except OSError:
         raise NetConnectError("Отстувует подключение к сети")
