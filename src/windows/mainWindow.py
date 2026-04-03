@@ -146,7 +146,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """Окно с графиком по дням"""
 
         try:
+<<<<<<< HEAD
             self.graphWindow = GraphWindow(
+=======
+            self.graphWindow = GraphWindow(self, 
+>>>>>>> fbd4337b5798967fd2b3d7d79451c1299bf1bbd1
                 self.jtools.get_account_name(self.jtools.get_current_account_id()),
                 self.jtools.get_dates_account_id(self.jtools.get_current_account_id()),
                 self.jtools.get_weight_account_id(self.jtools.get_current_account_id())

@@ -4,8 +4,8 @@ import pyqtgraph as pg
 class GraphWindow(PlotWidget):
     """Класс окна с графиком статистики"""
 
-    def __init__(self, name_account: str, listDates: list, listWeight: list):
-        super().__init__()
+    def __init__(self, parent, name_account: str, listDates: list, listWeight: list):
+        super().__init__(parent)
         
         self.name_account = name_account
         self.listDates = listDates
