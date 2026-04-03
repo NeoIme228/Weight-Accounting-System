@@ -32,5 +32,4 @@ exe = EXE(
     console=False, 
     codesign_identity=None,
     entitlements_file=None,
-    icon='../res/icons/honeycomb.ico'
 )
